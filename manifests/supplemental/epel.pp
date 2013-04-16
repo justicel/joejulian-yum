@@ -39,7 +39,7 @@ class yum::supplemental::epel {
                     gpgcheck => 1,
                     failovermethod => 'priority',
                     gpgkey  => "http://download.fedoraproject.org/pub/epel/$epelkey",
-                    priority => 17;
+                    priority => 15;
                 'epel-testing-debuginfo':
                     descr => 'Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Debug',
                     mirrorlist => 'http://mirrors.fedoraproject.org/mirrorlist?repo=testing-debug-epel$releasever&arch=$basearch',
@@ -47,7 +47,7 @@ class yum::supplemental::epel {
                     gpgcheck => 1,
                     failovermethod => 'priority',
                     gpgkey  => "http://download.fedoraproject.org/pub/epel/$epelkey",
-                    priority => 17;
+                    priority => 15;
                 'epel-testing-source':
                     descr => 'Extra Packages for Enterprise Linux $releasever - Testing - $basearch - Source',
                     mirrorlist => 'http://mirrors.fedoraproject.org/mirrorlist?repo=testing-source-epel$releasever&arch=$basearch',
@@ -55,7 +55,7 @@ class yum::supplemental::epel {
                     gpgcheck => 1,
                     failovermethod => 'priority',
                     gpgkey  => "http://download.fedoraproject.org/pub/epel/$epelkey",
-                    priority => 17;
+                    priority => 15;
             }
         }
         fedora: {

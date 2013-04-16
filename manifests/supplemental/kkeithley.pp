@@ -26,7 +26,7 @@ class yum::supplemental::kkeithley {
                         failovermethod => 'priority',
                         priority => 1;
                 }
-            } else {
+            } elsif ($osmajor == 17) {
                 yum::managed_yumrepo {
                     'kkeithley':
                         descr => 'Kaleb Keithley\'s Gluster Repo $releasever - $basearch',
