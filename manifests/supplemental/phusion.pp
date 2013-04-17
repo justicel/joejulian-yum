@@ -11,7 +11,7 @@ class yum::supplemental::phusion{
         gpgcheck       => 1,
         gpgkey         => 'http://passenger.stealthymonkeys.com/RPM-GPG-KEY-stealthymonkeys.asc',
         failovermethod => 'priority',
-        priority       => 1;
+        priority       => 1,
         require        => Yumrepo['epel'],
       }
     }
