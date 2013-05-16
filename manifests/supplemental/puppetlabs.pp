@@ -31,7 +31,7 @@ class yum::supplemental::puppetlabs {
     'puppetlabs-source':
       descr          => 'Puppet Labs puppet source repo',
       baseurl        =>
-        "http://yum.puppetlabs.com/${repobase/}${releasever}/products/SRPMS",
+        "http://yum.puppetlabs.com/${repobase}${releasever}/products/SRPMS",
       enabled        => 0,
       gpgcheck       => 1,
       failovermethod => 'priority',
