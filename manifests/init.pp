@@ -54,7 +54,7 @@ class yum (
     centos,fedora: {
       file { '/etc/sysconfig/yum-cron':
         ensure => present,
-        source => 'puppet://puppet/modules/yum/sysconfig/yum-cron',
+        source => 'puppet:///modules/yum/sysconfig/yum-cron',
         mode   => '0644',
         owner  => 'root',
         group  => 'root',
