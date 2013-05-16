@@ -3,16 +3,16 @@ class yum::prerequisites {
     'yum-priorities' :
       ensure => present,
   }
-  case $operatingsystem {
+  case $::operatingsystem {
     rhel,centos: {
-      if $::lsbmajdistrelease > 5 {
+      if ($::operatingsystemmajrelease > 5) {
         Package['yum-priorities']{
           name => 'yum-plugin-priorities'
         }
       }
     }
     fedora: {
-      if $::lsbmajdistrelease > 14 {
+      if ($::operatingsystemmajrelease > 14) {
         Package['yum-priorities']{
           name => 'yum-plugin-priorities'
         }
@@ -37,7 +37,7 @@ class yum::prerequisites {
     'rpm_gpg' :
        path         => '/etc/pki/rpm-gpg/',
        source       => [
-         "puppet:///modules/yum/rpm-gpg/${::operatingsystem}.${::lsbmajdistrelease}/",
+         "puppet:///modules/yum/rpm-gpg/${::operatingsystem}.${::operatingsystemmajrelease}/",
          "puppet:///modules/yum/rpm-gpg/default/"
        ],
        sourceselect => all,

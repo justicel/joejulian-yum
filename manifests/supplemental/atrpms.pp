@@ -3,7 +3,7 @@ class yum::supplemental::atrpms {
   case $::operatingsystem {
     centos: {
       yum::managed_yumrepo {
-        "centos${::lsbmajdistrelease}-atrpms":
+        "centos${::operatingsystemmajrelease}-atrpms":
           descr    => 'CentOS $releasever - $basearch - ATrpms',
           baseurl  =>
             'http://dl.atrpms.net/el$releasever-$basearch/atrpms/stable',

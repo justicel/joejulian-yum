@@ -4,8 +4,8 @@ class yum::supplemental::rpmforge {
   case $::operatingsystem {
     centos,rhel: {
       yum::managed_yumrepo {
-        "rpmforge-rhel${::lsbmajdistrelease}":
-          descr      => "RPMForge RHEL${::lsbmajdistrelease} packages",
+        "rpmforge-rhel${::operatingsystemmajrelease}":
+          descr      => "RPMForge RHEL${::operatingsystemmajrelease} packages",
           baseurl    => absent,
           mirrorlist =>
             'http://apt.sw.be/redhat/el$releasever/en/mirrors-rpmforge',

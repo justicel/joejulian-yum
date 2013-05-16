@@ -1,6 +1,6 @@
 #Fedora base yum class
 class yum::fedora::base {
-  if ($::lsbmajdistrelease > 6) {
+  if ($::operatingsystemmajrelease > 6) {
     yum::managed_yumrepo {
       'base':
         descr      => 'Fedora $releasever - $basearch',

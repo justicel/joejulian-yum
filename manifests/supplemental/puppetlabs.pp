@@ -3,15 +3,15 @@ class yum::supplemental::puppetlabs {
   case $::operatingsystem {
     centos,rhel: {
       $repobase = 'el'
-      $releasever = $::lsbmajdistrelease
+      $releasever = $::operatingsystemmajrelease
     }
     fedora: {
-      if $::lsbmajdistrelease == 6 {
+      if $::operatingsystemmajrelease == 6 {
         $repobase   = 'el'
         $releasever = 5
       } else {
         $repobase   = 'fedora'
-        $releasever = "f${::lsbmajdistrelease}"
+        $releasever = "f${::operatingsystemmajrelease}"
       }
     }
     default: {

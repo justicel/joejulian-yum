@@ -16,7 +16,7 @@ class yum::supplemental::kkeithley {
       }
     }
     fedora: {
-      if ($::lsbmajdistrelease < 16) {
+      if ($::operatingsystemmajrelease < 16) {
         yum::managed_yumrepo {
           'kkeithley':
             descr          => 'Kaleb Keithley\'s Gluster Repo 5 - $basearch',
@@ -28,7 +28,7 @@ class yum::supplemental::kkeithley {
             failovermethod => 'priority',
             priority       => 1;
         }
-      } elsif ($::lsbmajdistrelease == 17) {
+      } elsif ($::operatingsystemmajrelease == 17) {
         yum::managed_yumrepo {
           'kkeithley':
             descr          =>

@@ -53,7 +53,7 @@ class yum::centos::base {
       gpgkey     =>
         'http://mirror.centos.org/centos/$releasever/os/$basearch/RPM-GPG-KEY-CentOS-$releasever',
       priority   => 10;
-    "centos${::lsbmajdistrelease}-plus":
+    "centos${::operatingsystemmajrelease}-plus":
       descr      => 'CentOS-$releasever - Plus',
       mirrorlist => absent,
       baseurl    => 'http://mirror.centos.org/centos/$releasever/centosplus/$basearch/',

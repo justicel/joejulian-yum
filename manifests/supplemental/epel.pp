@@ -2,7 +2,7 @@
 class yum::supplemental::epel {
   case $::operatingsystem {
     centos,rhel: {
-      $epelkey = $::lsbmajdistrelease ? {
+      $epelkey = $::operatingsystemmajrelease ? {
         5 => 'RPM-GPG-KEY-EPEL',
         6 => 'RPM-GPG-KEY-EPEL-6',
       }
@@ -77,7 +77,7 @@ class yum::supplemental::epel {
       }
     }
     fedora: {
-      if $::lsbmajdistrelease < 14 {
+      if $::operatingsystemmajrelease < 14 {
         $epelkey = 'RPM-GPG-KEY-EPEL'
 
         yum::managed_yumrepo {

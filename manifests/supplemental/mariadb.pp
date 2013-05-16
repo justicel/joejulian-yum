@@ -21,7 +21,7 @@ class yum::supplemental::mariadb {
       }
     }
     fedora: {
-      if $::lsbmajdistrelease < 16 {
+      if $::operatingsystemmajrelease < 16 {
         yum::managed_yumrepo {
           'mariadb':
             descr          => 'MariaDB repository for RHEL/CentOS - $basearch',
