@@ -1,5 +1,5 @@
 name         'joejulian-yum'
-version      '2.0.1'
+version      '2.0.3'
 source       'git://github.com/joejulian/joejulian-yum.git'
 author       'Marcel Härry, Simon Josi, Joe Julian'
 license      'GPLv3'
