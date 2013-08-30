@@ -15,6 +15,8 @@
 class yum (
   $repo_stage = 'main'
 ) {
+  $os_release_parts = split($operatingsystemrelease, '[.]')
+  $operatingsystemmajrelease = $os_release_parts[0]
   # autoupdate
   package { 'yum-cron':
     ensure => present,
@@ -32,7 +34,7 @@ class yum (
               'yum::prerequisites' ]:
         stage => $repo_stage,
       }
-      case $::operatingsystemmajrelease {
+      case $operatingsystemmajrelease {
         5 : {
           class{'yum::centos::five':
             stage => $repo_stage,

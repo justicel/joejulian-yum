@@ -1,12 +1,16 @@
 #Puppetlabs puppet repositories
 class yum::supplemental::puppetlabs {
+
+  $os_release_parts = split($operatingsystemrelease, '[.]')
+  $operatingsystemmajrelease = $os_release_parts[0]
+
   case $::operatingsystem {
     centos,rhel: {
       $repobase = 'el'
-      $releasever = $::operatingsystemmajrelease
+      $releasever = $operatingsystemmajrelease
     }
     fedora: {
-      if $::operatingsystemmajrelease == 6 {
+      if $operatingsystemmajrelease == 6 {
         $repobase   = 'el'
         $releasever = 5
       } else {

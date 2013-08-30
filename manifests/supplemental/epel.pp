@@ -1,8 +1,12 @@
 #EPEL yum repository
 class yum::supplemental::epel {
+
+  $os_release_parts = split($operatingsystemrelease, '[.]')
+  $operatingsystemmajrelease = $os_release_parts[0]
+
   case $::operatingsystem {
     centos,rhel: {
-      $epelkey = $::operatingsystemmajrelease ? {
+      $epelkey = $operatingsystemmajrelease ? {
         5 => 'RPM-GPG-KEY-EPEL',
         6 => 'RPM-GPG-KEY-EPEL-6',
       }

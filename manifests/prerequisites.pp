@@ -1,18 +1,22 @@
 class yum::prerequisites {
+
+  $os_release_parts = split($operatingsystemrelease, '[.]')
+  $operatingsystemmajrelease = $os_release_parts[0]
+
   package {
     'yum-priorities' :
       ensure => present,
   }
   case $::operatingsystem {
     rhel,centos: {
-      if ($::operatingsystemmajrelease > 5) {
+      if ($operatingsystemmajrelease > 5) {
         Package['yum-priorities']{
           name => 'yum-plugin-priorities'
         }
       }
     }
     fedora: {
-      if ($::operatingsystemmajrelease > 14) {
+      if ($operatingsystemmajrelease > 14) {
         Package['yum-priorities']{
           name => 'yum-plugin-priorities'
         }
@@ -37,7 +41,7 @@ class yum::prerequisites {
     'rpm_gpg' :
        path         => '/etc/pki/rpm-gpg/',
        source       => [
-         "puppet:///modules/yum/rpm-gpg/${::operatingsystem}.${::operatingsystemmajrelease}/",
+         "puppet:///modules/yum/rpm-gpg/${::operatingsystem}.${operatingsystemmajrelease}/",
          "puppet:///modules/yum/rpm-gpg/default/"
        ],
        sourceselect => all,

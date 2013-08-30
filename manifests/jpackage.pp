@@ -1,5 +1,8 @@
 #Installs jpackage repositories
 class yum::jpackage {
+  $os_release_parts = split($operatingsystemrelease, '[.]')
+  $operatingsystemmajrelease = $os_release_parts[0]
+
   yum::managed_yumrepo {
     'jpackage-generic' :
       descr          => 'JPackage (free), generic',
@@ -14,7 +17,7 @@ class yum::jpackage {
       descr          =>
         'JPackage (free) for Red Hat Enterprise Linux $releasever',
       mirrorlist     =>
-        "http://www.jpackage.org/jpackage_rhel-${::operatingsystemmajrelease}_1.7.txt",
+        "http://www.jpackage.org/jpackage_rhel-${operatingsystemmajrelease}_1.7.txt",
       failovermethod => 'priority',
       gpgcheck       => 1,
       gpgkey         => 'http://www.jpackage.org/jpackage.asc',
