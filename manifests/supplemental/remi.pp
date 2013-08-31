@@ -10,10 +10,10 @@ class yum::supplemental::remi {
       }
       yum::managed_yumrepo {
         'remi' :
-          descr    =>
+          descr      =>
             'Les RPM de remi pour Enterpise Linux $releasever - $basearch',
-          baseurl  =>
-            'http://rpms.famillecollet.com/enterprise/$releasever/remi/$basearch/',
+          mirrorlist =>
+            'http://rpms.famillecollet.com/enterprise/$releasever/remi/mirror',
           enabled  => 1,
           gpgcheck => 1,
           gpgkey   => 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-remi',
